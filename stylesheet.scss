@@ -1,0 +1,102 @@
+
+// NESTING
+// aside {
+//   ul {
+//     margin: 0;
+//   }
+//   a {
+//     color: red;
+//   }
+// }
+
+// IMPORTS
+// @import 'reset';
+//
+// body {
+//   color: $color;
+// }
+
+//MIXINS
+// @mixin border($thickness) {
+//   border-width: $thickness;
+// }
+//
+// img { @include border(10px); }
+
+//MIXIN CONTENT
+// @mixin border($thickness) {
+//   border-width: $thickness;
+//   @content;
+// }
+//
+// img {
+//   @include border(10px);
+//   border-style: solid;
+// }
+
+// EXTEND/INHERITANCE
+// .push-button {
+//   background-color: blue;
+// }
+//
+// .main-button {
+//   @extend .push-button;
+//   font-weight: bold;
+// }
+
+//OPERATORS
+// $page-width: 1400px;
+// $padding: 20px;
+//
+// .container {
+//   padding: $padding;
+//   width: 0.8 * $page-width - (2 * $padding);
+// }
+
+//NESTED PROPERTIES
+.sassy {
+  border: {
+    width: 10px;
+    color: red;
+    radius: 5px;
+  }
+}
+
+//PARENT SELECTOR
+button {
+  color: black;
+  &:focus {
+    color: red;
+  }
+}
+
+//INTERPOLATION
+$selector: article;
+
+#{$selector} {
+  color: #f00;
+}
+
+//EACH
+@each $big-cat in cheetah, puma, jaguar, panther, tiger, leopard {
+  .#{$big-cat}-picture {
+    padding: 3em;
+  }
+}
+
+//FOR LOOP
+@for $heading from 1 through 6 {
+  h#{$heading} {
+    font-size: 24px - 3px * $heading;
+  }
+}
+
+//WHILE LOOP
+$heading: 1;
+
+@while $heading <= 6  {
+  h#{$heading} {
+    font-size: 24px - 3px * $heading;
+  }
+  $heading: $heading + 1;
+}
